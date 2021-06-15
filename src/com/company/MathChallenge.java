@@ -3,6 +3,7 @@ package com.company;
 import com.company.exception.DivisionByZeroException;
 
 import java.util.Stack;
+import java.util.stream.IntStream;
 
 public class MathChallenge {
     //method for calculate string with bracket
@@ -452,14 +453,9 @@ public class MathChallenge {
     /*
      * the function counts how many minuses in string
      * */
-    private int countOperandMinus(StringBuffer stringBuffer) {
-        int count = 0;
-        for (int i = 0; i < stringBuffer.length(); i++) {
-            if (stringBuffer.charAt(i) == '-') {
-                count++;
-            }
-        }
-        return count;
+    private long countOperandMinus(StringBuffer stringBuffer) {
+        IntStream intStream  = stringBuffer.chars();
+        return  intStream.filter(value -> value == '-').count();
     }
 
     /*
