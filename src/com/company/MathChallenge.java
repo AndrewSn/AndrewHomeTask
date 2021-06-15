@@ -207,21 +207,27 @@ public class MathChallenge {
             string.deleteCharAt(0);
             int index = string.indexOf("+");
             for (int i = 1; i < index + 1; i++) {
+                //check if we are within the array and check if next element is digit
                 if (index - i >= 0 && Character.isDigit(string.charAt(index - i))) {
-                    rightNumeric.append(string.charAt(index - i));
+                    //add this digit to right numeric
+                    leftNumeric.append(string.charAt(index - i));
                     leftIndex = index - i;
                 } else break;
             }
-            int leftResult = Integer.parseInt(String.valueOf(rightNumeric.reverse()));
+            int leftResult = Integer.parseInt(String.valueOf(leftNumeric.reverse()));
             int endArray = string.length() - index;
             for (int i = 1; i < endArray; i++) {
+                // check if next element is digit
                 if (Character.isDigit(string.charAt(index + i))) {
-                    leftNumeric.append(string.charAt(index + i));
+                    //add this digit to left numeric
+                    rightNumeric.append(string.charAt(index + i));
                     rightIndex = index + i + 1;
                 } else break;
             }
-            int rightResult = Integer.parseInt(String.valueOf(leftNumeric));
+            int rightResult = Integer.parseInt(String.valueOf(rightNumeric));
+            //calculate result
             result = rightResult - leftResult;
+            //replace string by our result
             string.replace(leftIndex, rightIndex, Integer.toString(result));
         }
         /*
@@ -233,22 +239,27 @@ public class MathChallenge {
         else {
             int index = string.indexOf("+");
             for (int i = 1; i < index + 1; i++) {
+                //check if next element is digit
                 if (index - i >= 0 && Character.isDigit(string.charAt(index - i))) {
-                    rightNumeric.append(string.charAt(index - i));
+                    //add this digit to left nimeric
+                    leftNumeric.append(string.charAt(index - i));
                     leftIndex = index - i;
                 } else break;
             }
-            Integer leftResult = Integer.parseInt(String.valueOf(rightNumeric.reverse()));
+            Integer leftResult = Integer.parseInt(String.valueOf(leftNumeric.reverse()));
             for (int i = 1; i < string.length() - index; i++) {
+                //check if next element is digit
                 if (Character.isDigit(string.charAt(index + i))) {
-                    leftNumeric.append(string.charAt(index + i));
+                    //add thsi digit to right numeric
+                    rightNumeric.append(string.charAt(index + i));
                     rightIndex = index + i + 1;
                 } else break;
             }
-            Integer rightResult = Integer.parseInt(String.valueOf(leftNumeric));
+            Integer rightResult = Integer.parseInt(String.valueOf(rightNumeric));
 
-
+            //calculate result
             result = leftResult + rightResult;
+            //replace string by result
             string.replace(leftIndex, rightIndex, Integer.toString(result));
         }
 
@@ -271,7 +282,9 @@ public class MathChallenge {
             if (str.indexOf("+") != -1 && str.indexOf("+") < str.indexOf("-")) {
                 int index = str.indexOf("+");
                 for (int i = 1; i < index + 1; i++) {
+                    //check if next element is digit
                     if (index - i >= 0 && Character.isDigit(str.charAt(index - i))) {
+                        //add this digit to left numeric
                         leftNumeric.append(str.charAt(index - i));
                         leftIndex = index - i;
                     } else break;
@@ -279,13 +292,17 @@ public class MathChallenge {
                 Integer leftResult = Integer.parseInt(String.valueOf(leftNumeric.reverse()));
                 int endArray = str.length() - index;
                 for (int i = 1; i < endArray; i++) {
+                    //check if next element is digit
                     if (Character.isDigit(str.charAt(index + i))) {
+                        //add thsi digit to right numeric
                         rightNumeric.append(str.charAt(index + i));
                         rightIndex = index + i + 1;
                     } else break;
                 }
                 Integer rightResult = Integer.parseInt(String.valueOf(rightNumeric));
+                //calculate result
                 result = (leftResult - rightResult) * -1;
+                //replace our string
                 str.replace(leftIndex, rightIndex, Integer.toString(result));
             }
             /*
@@ -297,21 +314,27 @@ public class MathChallenge {
             else {
                 int index = str.indexOf("-");
                 for (int i = 1; i < index + 1; i++) {
+                    //check if next element is digit
                     if (index - i >= 0 && Character.isDigit(str.charAt(index - i))) {
-                        rightNumeric.append(str.charAt(index - i));
+                        //add this digit to left numeric
+                        leftNumeric.append(str.charAt(index - i));
                         leftIndex = index - i;
                     } else break;
                 }
-                Integer leftResult = Integer.parseInt(String.valueOf(rightNumeric.reverse()));
+                Integer leftResult = Integer.parseInt(String.valueOf(leftNumeric.reverse()));
                 int endArray = str.length() - index;
                 for (int i = 1; i < endArray; i++) {
+                    //check if next element is digit
                     if (Character.isDigit(str.charAt(index + i))) {
-                        leftNumeric.append(str.charAt(index + i));
+                        //add this digit to right numeric
+                        rightNumeric.append(str.charAt(index + i));
                         rightIndex = index + i + 1;
                     } else break;
                 }
-                Integer rightResult = Integer.parseInt(String.valueOf(leftNumeric));
+                Integer rightResult = Integer.parseInt(String.valueOf(rightNumeric));
+                //calculte result
                 result = (leftResult + rightResult) * -1;
+                //replace our string
                 str.replace(leftIndex, rightIndex, Integer.toString(result));
             }
         }
@@ -323,20 +346,24 @@ public class MathChallenge {
         else {
             int index = str.indexOf("-");
             for (int i = 1; i < index + 1; i++) {
+                //check if next element is digit
                 if (index - i >= 0 && Character.isDigit(str.charAt(index - i))) {
-                    rightNumeric.append(str.charAt(index - i));
+                    //add this digit to left numeric
+                    leftNumeric.append(str.charAt(index - i));
                     leftIndex = index - i;
                 } else break;
             }
-            Integer leftResult = Integer.parseInt(String.valueOf(rightNumeric.reverse()));
+            Integer leftResult = Integer.parseInt(String.valueOf(leftNumeric.reverse()));
             int endArray = str.length() - index;
             for (int i = 1; i < endArray; i++) {
+                //check if next element is digit
                 if (Character.isDigit(str.charAt(index + i))) {
-                    leftNumeric.append(str.charAt(index + i));
+                    //add this digit to right numeric
+                    rightNumeric.append(str.charAt(index + i));
                     rightIndex = index + i + 1;
                 } else break;
             }
-            Integer rightResult = Integer.parseInt(String.valueOf(leftNumeric));
+            Integer rightResult = Integer.parseInt(String.valueOf(rightNumeric));
             result = leftResult - rightResult;
             str.replace(leftIndex, rightIndex, Integer.toString(result));
         }
